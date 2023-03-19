@@ -1,0 +1,83 @@
+# This file is covered by the LICENSE file in the root of this project.
+labels: 
+  "areas_footway" : 0
+  "areas_pedestrian" : 1
+  "areas_railways" : 2
+  "areas_service" : 3
+  "buildings" : 4
+  "coastlines" : 5
+  "forest" : 6
+  "paths_cycleway" : 7
+  "paths_footway" : 8
+  "paths_steps" : 9
+  "roads_motorway" : 10
+  "roads_pedestrian" : 11
+  "roads_primary" : 12
+  "roads_residential" : 13
+  "roads_secondary" : 14
+  "roads_service" : 15
+  "roads_trunk" : 16
+  "roads_unclassified" : 17
+  "vegetation" : 18
+  "water" : 19
+  "paths_bridleway" : 20
+  "railways" : 21
+  "roads_tertiary" : 22
+  "roads_track" : 23
+  "roads_other" : 24
+
+categories: 
+  0: "areas_footway"
+  1: "areas_pedestrian"
+  2: "areas_railways"
+  3: "areas_service"
+  4: "buildings"
+  5: "coastlines"
+  6: "forest"
+  7: "paths_cycleway"
+  8: "paths_footway"
+  9: "paths_steps"
+  10: "roads_motorway"
+  11: "roads_pedestrian"
+  12: "roads_primary"
+  13: "roads_residential"
+  14: "roads_secondary"
+  15: "roads_service"
+  16: "roads_trunk"
+  17: "roads_unclassified"
+  18: "vegetation"
+  19: "water"
+  20: "paths_bridleway"
+  21: "railways"
+  22: "roads_tertiary"
+  23: "roads_track"
+  24: "roads_other"
+
+
+color_map: # rgb
+  0 : [100,149,237]
+  1 : [30,144,255]
+  2: [135,206,250]
+  3: [240,230,140]
+  4: [255,215,0]
+  5: [0, 0, 0]
+  6: [46,139,87]
+  7: [50,205,50]
+  8: [124,252,0]
+  9: [107,142,35]
+  10: [255,182,193]
+  11: [220,20,60]
+  12: [255,105,180]
+  13: [199,21,133]
+  14: [218,112,214]
+  15: [139,0,139]
+  16: [148,0,211]
+  17: [105,105,105]
+  18: [0, 100, 0]
+  19: [0, 0, 255]
+  20: [154,205,50]
+  21: [128,128,0]
+  22: [255,165,0]
+  23: [255,255,0]
+  24: [192,192,192]
+  

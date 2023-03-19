@@ -4,7 +4,7 @@ sys.path.append(os.getcwd())
 import numpy as np
 import xml.etree.ElementTree as ET
 from functools import reduce
-from openstreetmap.transverse_mercator import TransverseMercator
+from transverse_mercator import TransverseMercator
 
 def get_boundary(children):
     boundary_coordinates = []

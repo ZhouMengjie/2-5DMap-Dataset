@@ -5,8 +5,8 @@ import copy
 import yaml
 import numpy as np
 import open3d as o3d
-from openstreetmap import cropping
-from openstreetmap import sampling
+import cropping
+import sampling
 
 if __name__ == "__main__":
     # assign path 

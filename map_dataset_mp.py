@@ -6,7 +6,7 @@ import argparse
 import numpy as np
 import pandas as pd
 import multiprocessing
-from openstreetmap import cropping
+import cropping
 
 class RenderThread:
     def __init__(self, points_mh,points_pt,radius,save_path,q,printLock):

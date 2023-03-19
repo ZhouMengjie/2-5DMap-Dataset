@@ -2,14 +2,14 @@ import bpy
 import sys
 import os
 
-# test on blender 3.1
-# usage: 
-# blender --background --python blender_osm.py -- xxx (file name)
+# test on blender 3.1.0
+# usage: blender --background --python blender_osm.py -- xxx (file name)
 
 argv = sys.argv[sys.argv.index("--") + 1:]
 assert(len(argv) == 1)
 data_path = os.path.join(os.getcwd(), 'datasets', argv[0])
 osm_file = os.path.join(data_path, (argv[0] + '.osm'))
+assert os.path.exists(osm_file), 'Cannot open .osm file: {}'.format(osm_file)
 txt_file = os.path.join(data_path, (argv[0] + '.txt'))
 if not os.path.isdir(os.path.join(data_path, (argv[0]+'_obj'))):
     os.makedirs(os.path.join(data_path, (argv[0]+'_obj')))
