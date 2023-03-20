@@ -1,11 +1,12 @@
 ## A Large Scale Ground-to-2.5D Map Geolocalization Dataset
 This repository contains datasets and codes related to our latest work:
 - Image-based Geolocalization by Ground-to-2.5D Map Matching (to be published)
+- The task is done by querying the ground-view image with respect to the cartographic map.
+- The large-scale and georeferenced map consists of 2.5D structure models and 2D aerial-view map images.
 
-Data are from the city of New York and Manhattan:
-Manhattan             |  Pittsburgh
+2D map            |  2.5D map
 :-------------------------:|:-------------------------:
-<img src="https://github.com/ZhouMengjie/2-5DMap-Dataset/datasets/examples/manhattan.png" width="288" height="288">  |  ![](datasets/examples/pittsburgh.png)
+<img src="datasets/examples/2Dmap.png" width="435" height="267">  |  <img src="datasets/examples/2_5Dmap.png" width="500" height="300">
 
 
 ### Datasets
@@ -30,7 +31,7 @@ pip3 install open3d==0.15.1
 #### Data Processing Pipeline
 Step 1. Obtain the meta data (.osm file) from the [OpenStreetMap](https://www.openstreetmap.org "OpenStreetMap")
 ```
-python osm_loarder.py --dataroot 'datasets'  --city 'manhattan'
+python osm_loarder.py --dataroot 'datasets' --city 'manhattan'
 ```
 - We have set the bounding box [minlon, minlat, maxlon, maxlat] for Manhattan and Pittsburgh, you can automatically get their .osm files. 
 - If the network connection is not stable, you can also choose to manually download the required files from the official OSM website.
@@ -109,9 +110,13 @@ Finally, all the data will be stored following this directory structure:
 |   |––wallstreet5kU_idx
 |   |––unionsquare5kU_idx
 ```
-- The ground-view image and 2.5D map (point cloud) are named with unique string identifier, 
-- The 2D map is named with global index.
-- We provide a pair of data in \datasets\examples to help users do a visualization check. 
+- The ground-view image and 2.5D map (point cloud) are named with unique string identifier. The 2D map is named with global index.
+- The folders of "manhattan" and "pittsburgh" can be obtained with the extraction code [data](https://pan.baidu.com/s/1XTy4qbMVDXHIjPJi2JZVqw "data").
+- We provide a pair of data in \datasets\examples\ and "visualizer.py" to help users do a visualization check. 
+
+Panoram                                |  2D map                | 2.5D map         
+:-------------------------:|:-------------------------:|:-------------------------:
+<img src="datasets/examples/_dlEF8O77LTsFm2G9m7EiA.jpg" width="448" height="224">  |  <img src="datasets/examples/46265.png" > | <img src="datasets/examples/map1.png" >
 
 
 ### FAQ
@@ -121,6 +126,7 @@ Finally, all the data will be stored following this directory structure:
 2. In the Step 3, you may be prompted that [Open3D INFO] Skipping non-triangle primitive geometry of type: 6.
 - You should check your .obj files and delete "l" (line) manually. Otherwise, the .obj file won't be processed by the subsequent steps.
 3. If you have any other questions, please feel free to leave a message or contact me via "mengjie.zhou@bristol.ac.uk".
+
 
 ### To release
 - codes for learning embedding space
