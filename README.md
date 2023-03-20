@@ -2,6 +2,11 @@
 This repository contains datasets and codes related to our latest work:
 - Image-based Geolocalization by Ground-to-2.5D Map Matching (to be published)
 
+Data are from the city of New York and Manhattan:
+Manhattan             |  Pittsburgh
+:-------------------------:|:-------------------------:
+<img src="https://github.com/ZhouMengjie/2-5DMap-Dataset/datasets/examples/manhattan.png" width="288" height="288">  |  ![](datasets/examples/pittsburgh.png)
+
 
 ### Datasets
 Here we present two ready-made datasets repsectively including:
@@ -80,22 +85,34 @@ python pcd_merge.py --dataroot 'datasets' --city 'manhattan'
 
 Step 5. Generate map subsets for training, validation and testing with multiprocessing
 ```
-python lat2xy.py --dataroot 'datasets' --area 'hudsonriver5kU'
+python lat2xy.py --dataroot 'datasets' --area 'unionsquare5kU'
 python merge_csv.py
-python map_dataset_mp.py --dataroot 'datasets' --area 'hudsonriver5kU' --radius 114 --num_threads 16
+python map_dataset_mp.py --dataroot 'datasets' --area 'unionsquare5kU' --radius 114 --num_threads 16
 ```
-- First, the lat/lon provided in .csv files should be converted to x/y.
+- First, the center [lat,lon] of each local region provided in .csv files should be converted to [x,y].
 - There are five areas named as 'hudsonriver5kU', 'wallstreet5kU', 'unionsquare5kU', 'trainstreetlearnU' and 'cmu5kU'.
 - The .csv files of 'trainstreetlearnU' and 'cmu5kU' are merged for training. 
 - The radius is defined as original_radius * sqrt(2), which can ensure that there is no loss of information after rotating the magnified area and restoring it to its original size.
 
 Finally, all the data will be stored following this directory structure: 
 ```
+|–– datasets
+|   |––csv
+|   |––manhattan
+|   |––pittsburgh
+|   |––jpegs_manhattan_2019
+|   |––jpegs_pittsburgh_2019
+|   |––tiles_manhattan_2019
+|   |––tiles_pittsburgh_2019
+|   |––trainstreetlearnU_cmu5kU_idx
+|   |––hudsonriver5kU_idx
+|   |––wallstreet5kU_idx
+|   |––unionsquare5kU_idx
 ```
-we provide ...
+- The ground-view image and 2.5D map (point cloud) are named with unique string identifier, 
+- The 2D map is named with global index.
+- We provide a pair of data in \datasets\examples to help users do a visualization check. 
 
-
-### Visualization
 
 ### FAQ
 1. To install the Open3D on Linux, you may encounter that the GLIBC version is incompatible.
