@@ -1,18 +1,24 @@
 import bpy
-import sys
 import os
+import sys
+sys.path.append(os.getcwd())
+import argparse
 
 # test on blender 3.1.0
-# usage: blender --background --python blender_osm.py -- xxx (file name)
+# usage: blender --background --python blender_osm.py
+parser = argparse.ArgumentParser(description='Obtain .obj files')
+parser.add_argument('--dataroot', type=str, required=False, default='datasets', help='dataset root folder')
+parser.add_argument('--city', type=str, required=False, default='manhattan', help='city name')
+args = parser.parse_args()
 
-argv = sys.argv[sys.argv.index("--") + 1:]
-assert(len(argv) == 1)
-data_path = os.path.join(os.getcwd(), 'datasets', argv[0])
-osm_file = os.path.join(data_path, (argv[0] + '.osm'))
+dataroot = args.dataroot
+city = args.city
+data_path = os.path.join(os.getcwd(), dataroot, city)
+osm_file = os.path.join(data_path, (city + '.osm'))
 assert os.path.exists(osm_file), 'Cannot open .osm file: {}'.format(osm_file)
-txt_file = os.path.join(data_path, (argv[0] + '.txt'))
-if not os.path.isdir(os.path.join(data_path, (argv[0]+'_obj'))):
-    os.makedirs(os.path.join(data_path, (argv[0]+'_obj')))
+txt_file = os.path.join(data_path, (city + '.txt'))
+if not os.path.isdir(os.path.join(data_path, (city + '_obj'))):
+    os.makedirs(os.path.join(data_path, (city + '_obj')))
 
 while bpy.data.objects:
     bpy.data.objects.remove(bpy.data.objects[0], do_unlink=True)
@@ -40,7 +46,6 @@ bpy.context.scene.blosm.defaultLevels[2].weight = 30
 
 bpy.ops.blosm.import_data()
 
-# check the geographical coordinates:
 scene = bpy.context.scene
 print(['global origin at:' + str(scene["lat"]) + ',' + str(scene["lon"])])
 f = open(txt_file, 'w')
@@ -57,7 +62,7 @@ for ob in obs:
     bpy.ops.object.convert(target='MESH')
 
     print(ob.name)
-    output_file = os.path.join(data_path, argv[0]+'_obj', (ob.name + '.obj'))
+    output_file = os.path.join(data_path, city+'_obj', (ob.name + '.obj'))
     bpy.context.view_layer.objects.active = ob
     try:
         bpy.ops.object.modifier_add(type='TRIANGULATE')

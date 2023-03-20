@@ -6,7 +6,7 @@ import argparse
 import numpy as np
 import pandas as pd
 import multiprocessing
-import cropping
+from utils import cropping
 
 class RenderThread:
     def __init__(self, points_mh,points_pt,radius,save_path,q,printLock):
@@ -32,8 +32,6 @@ class RenderThread:
             if os.path.exists(os.path.join(self.save_path, (panoid + '.npy'))):
                 print(panoid+' exists...')
             else:
-                # print(panoid+' processing...')
-                # just crop
                 if city == 'manhattan':
                     points = self.points_mh
                 elif city == 'pittsburgh':
@@ -53,27 +51,28 @@ class RenderThread:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate map datasets')
-    parser.add_argument('--area', type=str, required=False, default='hudsonriver5kU', help='map dataset root folder')
-    parser.add_argument('--radius', type=np.int64, required=False, default=114, help='map dataset root folder')    
-    parser.add_argument('--num_threads', type=np.int64, required=False, default=16, help='map dataset root folder')        
+    parser.add_argument('--dataroot', type=str, required=False, default='datasets', help='dataset root folder')
+    parser.add_argument('--area', type=str, required=False, default='unionsquare5kU', help='subset area')
+    parser.add_argument('--radius', type=np.int64, required=False, default=114, help='height/width of the local region')    
+    parser.add_argument('--num_threads', type=np.int64, required=False, default=16, help='number of thread')        
     args = parser.parse_args()
 
-    data_path = os.path.join(os.getcwd(), 'datasets')
+    dataroot = args.dataroot
+    data_path = os.path.join(os.getcwd(), dataroot)
     # load pcd
     points_mh = np.load(os.path.join(data_path, 'manhattan', 'manhattanU.npy'))
     points_pt = np.load(os.path.join(data_path, 'pittsburgh', 'pittsburghU.npy'))                    
 
     # read csv file
     area = args.area
-
     data = pd.read_csv(os.path.join(data_path, 'csv', (area + '_xy.csv')), sep=',', header=None)
     infos = data.values
     radius = args.radius
 
-    # Create threads
-    # print(multiprocessing.cpu_count())
-    # num_threads = multiprocessing.cpu_count() # 8
-    num_threads = args.num_threads
+    # create threads
+    print(multiprocessing.cpu_count())
+    num_threads = multiprocessing.cpu_count()
+    num_threads = min(num_threads, args.num_threads)
     queue = multiprocessing.JoinableQueue(40)
     printLock = multiprocessing.Lock()
     renderers = {}
@@ -90,9 +89,8 @@ if __name__ == "__main__":
         t = (infos[i])
         queue.put(t)
 
-
     print("No more locations ...")
-    # Signal render threads to exit by sending empty request to queue
+    # signal render threads to exit by sending empty request to queue
     for i in range(num_threads):
         queue.put(np.asarray(None))
 

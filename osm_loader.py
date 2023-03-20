@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.append(os.getcwd())
 import argparse
 import requests
 
@@ -12,11 +14,11 @@ def request_big_data(url, osm_file):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Download .osm files')
-    parser.add_argument('--dataroot', type=str, required=True, default='datasets', help='dataset root folder')
-    parser.add_argument('--city', type=str, required=True, default='manhattan', help='city name')
+    parser.add_argument('--dataroot', type=str, required=False, default='datasets', help='dataset root folder')
+    parser.add_argument('--city', type=str, required=False, default='manhattan', help='city name')
     args = parser.parse_args()
 
-    data_path = args.dataroot
+    dataroot = args.dataroot
     city = args.city
     if city == 'manhattan':
         bbox = [-74.028, 40.695, -73.940, 40.788]
@@ -25,12 +27,12 @@ if __name__ == "__main__":
     else:
         raise NotImplementedError('Please manually set the bounding box!')
     
-    folder_path = os.path.join(data_path, city)
-    if not os.path.exists(folder_path):
-        os.mkdir(folder_path)
-    assert os.path.exists(folder_path), 'Cannot create folder: {}'.format(folder_path)
+    data_path = os.path.join(os.getcwd(), dataroot, city)
+    if not os.path.exists(data_path):
+        os.mkdir(data_path)
+    assert os.path.exists(data_path), 'Cannot create folder: {}'.format(data_path)
 
-    osm_file = os.path.join(folder_path, (city +'.osm'))  
+    osm_file = os.path.join(data_path, (city +'.osm'))  
     if not os.path.isfile(osm_file):
         url = ('http://overpass.openstreetmap.ru/cgi/xapi_meta?*[bbox='
                 + str(bbox[0]) + ',' + str(bbox[1]) + ',' + str(bbox[2]) + ',' + str(bbox[3]) + ']')
