@@ -1,26 +1,27 @@
 ## A Large Scale Ground-to-2.5D Map Geolocalization Dataset
 This repository contains datasets and codes related to our latest work:
 - Image-based Geolocalization by Ground-to-2.5D Map Matching (to be published)
-- The task is done by querying the ground-view image with respect to the cartographic map.
-- The large-scale and georeferenced map consists of 2.5D structure models and 2D aerial-view map images.
+
+The main task of our work involves querying a ground-view image in relation to a large-scale and highly detailed georeferenced map, which consists of 2.5D structure models and 2D aerial-view map images. Examples of the 2D and 2.5D maps are shown below.
 
 2D map            |  2.5D map
-:-------------------------:|:-------------------------:
-<img src="datasets/examples/2Dmap.png" width="435" height="267">  |  <img src="datasets/examples/2_5Dmap.png" width="500" height="300">
+:----------------:|:-------------------------:
+<img src="datasets/examples/2Dmap.png" width="55%" height="auto">  |  <img src="datasets/examples/2_5Dmap.png" width="100%" height="auto">
+
 
 
 ### Datasets
-Here we present two ready-made datasets repsectively including:
+Here, we present two ready-made datasets, each of which includes:
 - Ground-view panoramic images (To request, please visit the project of [StreetLearn Dataset](https://sites.google.com/view/streetlearn/dataset "StreetLearn Dataset")). 
 - 2D maps (To request, please visit our previous project: [You Are Here: Geolocation by Embedding Maps and Images](https://github.com/ZhouMengjie/Image-Map-Embeddings "You Are Here: Geolocation by Embedding Maps and Images")).
 
 
 ### Codes
-Here we provide python implementation to generate 2.5D map dataset. The prerequisite and data procesing pipeline are shown below.
+We offer a Python implementation for generating a 2.5D map dataset, along with its prerequisite and data processing pipeline.
 
 #### Prerequisite
-You can use conda and pip to configure your own environment with the following commands:
- ```
+Here are the commands to configure your own environment using conda and pip:
+```
 conda create -n env_name python=3.8
 pip3 install pyyaml
 pip3 install pandas
@@ -29,13 +30,14 @@ pip3 install open3d==0.15.1
 ```
 
 #### Data Processing Pipeline
-Step 1. Obtain the meta data (.osm file) from the [OpenStreetMap](https://www.openstreetmap.org "OpenStreetMap")
+****Step 1. Obtain the metadata from the [OpenStreetMap](https://www.openstreetmap.org "OpenStreetMap")
+
 ```
 python osm_loarder.py --dataroot 'datasets' --city 'manhattan'
 ```
-- We have set the bounding box [minlon, minlat, maxlon, maxlat] for Manhattan and Pittsburgh, you can automatically get their .osm files. 
-- If the network connection is not stable, you can also choose to manually download the required files from the official OSM website.
-- The data will be stored following this directory structure: \datasets\manhattan\manhattan.osm
+- We've set the bounding box for Manhattan and Pittsburgh, allowing you to automatically obtain their .osm files.
+- If your network connection is unstable, you can manually download the required files from the official OSM website.
+- The data will be stored in the following directory structure: \datasets\manhattan\manhattan.osm
 
 Step 2. Get the 2.5D models of each semantic categroy represented in mesh structure
 - Preparation: install the [Blender 3.1.0](https://www.blender.org "Blender 3.1.0") and [blender-osm addon](https://github.com/vvoovv/blender-osm/wiki/Documentation "blender-osm addon").
