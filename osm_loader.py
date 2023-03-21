@@ -21,7 +21,8 @@ if __name__ == "__main__":
     dataroot = args.dataroot
     city = args.city
     if city == 'manhattan':
-        bbox = [-74.028, 40.695, -73.940, 40.788]
+        # [minlon, minlat, maxlon, maxlat]
+        bbox = [-74.028, 40.695, -73.940, 40.788] 
     elif city == 'pittsburgh':
         bbox = [-80.035, 40.425, -79.930, 40.460]
     else:
