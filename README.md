@@ -30,7 +30,7 @@ pip3 install open3d==0.15.1
 ```
 
 #### Data Processing Pipeline
-##### Step 1. Obtain the metadata from the [OpenStreetMap](https://www.openstreetmap.org "OpenStreetMap").
+#### Step 1. Obtain the metadata from the [OpenStreetMap](https://www.openstreetmap.org "OpenStreetMap").
 
 ```
 python osm_loarder.py --dataroot 'datasets' --city 'manhattan'
@@ -39,7 +39,7 @@ python osm_loarder.py --dataroot 'datasets' --city 'manhattan'
 - If your network connection is unstable, you can manually download the required files from the official OSM website.
 - The resulting data will be stored in the following directory structure: \datasets\manhattan\manhattan.osm
 
-##### Step 2. Obtain 2.5D models for each semantic category, represented in mesh structure.
+#### Step 2. Obtain 2.5D models for each semantic category, represented in mesh structure.
 ```
 blender --background --python blender_osm.py --dataroot 'datasets' --city 'manhattan'
 ```
@@ -58,7 +58,7 @@ blender --background --python blender_osm.py --dataroot 'datasets' --city 'manha
 - There are 25 .obj files, each named after a specific semantic category.
 - The .obj file mainly includes the following elements: o-object name, v-geometric vertices, vn-vertex normals, vt-texture vertices, mtllib-material library, usemtl-material name, f-face, and l-line.
 
-##### Step 3. Generate a point cloud for each semantic category by using uniform sampling on the mesh.
+#### Step 3. Generate a point cloud for each semantic category by using uniform sampling on the mesh.
 ```
 python pcd_generate.py --dataroot 'datasets' --city 'manhattan' --radius 76 --density 0.1
 ```
@@ -78,14 +78,14 @@ python pcd_generate.py --dataroot 'datasets' --city 'manhattan' --radius 76 --de
 - The semantic label of each point is saved in a .csv file.
 - Refer to "color_map.yaml" for each category's name, label, and encoded color.
 
-##### Step 4. Merge the point clouds of each semantic category into a single point cloud representing the entire area.
+#### Step 4. Merge the point clouds of each semantic category into a single point cloud representing the entire area.
 ```
 python pcd_merge.py --dataroot 'datasets' --city 'manhattan'
 ```
 - The resulting data will be stored following this directory structure: \datasets\manhattan\manhattanU.pcd or manhattanU.npy.
 - The .pcd file contains the coordinates and colors of each point, while the .npy file only contains the coordinate information.
 
-##### Step 5. Generate map subsets for training, validation, and testing using multiprocessing.
+#### Step 5. Generate map subsets for training, validation, and testing using multiprocessing.
 ```
 python lat2xy.py --dataroot 'datasets' --area 'unionsquare5kU'
 python merge_csv.py
@@ -94,7 +94,7 @@ python map_dataset_mp.py --dataroot 'datasets' --area 'unionsquare5kU' --radius 
 - First, for each of the five areas named 'hudsonriver5kU', 'wallstreet5kU', 'unionsquare5kU', 'trainstreetlearnU', and 'cmu5kU', you need to convert the center (lat, lon) of each local region provided in the .csv files to (x, y) coordinates. The .csv files for 'trainstreetlearnU' and 'cmu5kU' are combined for the purpose of training.
 - Then, the local region is cropped from the whole area point cloud using the radius centered at (x, y). The radius is defined as original_radius * sqrt(2), which can ensure that there is no loss of information after rotating the magnified area and restoring it to its original size.
 
-Finally, the data will be stored in the following directory structure:
+### The final data will be stored in the following directory structure:
 ```
 |–– datasets
 |   |––csv
@@ -109,7 +109,7 @@ Finally, the data will be stored in the following directory structure:
 |   |––wallstreet5kU_idx
 |   |––unionsquare5kU_idx
 ```
-- The ground-view image and 2.5D map (point cloud) are saved with unique string identifiers, while the 2D map is saved with a global index.
+- Ground-view images and 2.5D maps are saved with unique identifiers, while 2D maps are saved with a global index.
 - The folders "manhattan" and "pittsburgh" can be obtained with the provided [extraction code](https://pan.baidu.com/s/1XTy4qbMVDXHIjPJi2JZVqw "extraction code") "data".
 - We offer a set of data in the \datasets\examples directory and a "visualizer.py" script to assist users in conducting visualization checks.
 
