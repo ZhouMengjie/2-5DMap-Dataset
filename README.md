@@ -1,4 +1,4 @@
-## A Large Scale Ground-to-2.5D Map Geolocalization Dataset
+# A Large Scale Ground-to-2.5D Map Geolocalization Dataset
 This repository contains datasets and codes related to our latest work:
 - Image-based Geolocalization by Ground-to-2.5D Map Matching (to be published)
 
@@ -6,20 +6,20 @@ The main task of our work involves querying a ground-view image in relation to a
 
 2D map            |  2.5D map
 :----------------:|:-------------------------:
-<img src="datasets/examples/2Dmap.png" width="55%" height="auto">  |  <img src="datasets/examples/2_5Dmap.png" width="100%" height="auto">
+<img src="datasets/examples/2Dmap.png" width="435" height="267">  |  <img src="datasets/examples/2_5Dmap.png" width="500" height="300">
 
 
 
-### Datasets
+## Datasets
 Here, we present two ready-made datasets, each of which includes:
 - Ground-view panoramic images (To request, please visit the project of [StreetLearn Dataset](https://sites.google.com/view/streetlearn/dataset "StreetLearn Dataset")). 
 - 2D maps (To request, please visit our previous project: [You Are Here: Geolocation by Embedding Maps and Images](https://github.com/ZhouMengjie/Image-Map-Embeddings "You Are Here: Geolocation by Embedding Maps and Images")).
 
 
-### Codes
+## Codes
 We offer a Python implementation for generating a 2.5D map dataset, along with its prerequisite and data processing pipeline.
 
-#### Prerequisite
+### Prerequisite
 Here are the commands to configure your own environment using conda and pip:
 ```
 conda create -n env_name python=3.8
@@ -29,7 +29,7 @@ pip3 install tqdm
 pip3 install open3d==0.15.1 
 ```
 
-#### Data Processing Pipeline
+### Data Processing Pipeline
 #### Step 1. Obtain the metadata from the [OpenStreetMap](https://www.openstreetmap.org "OpenStreetMap").
 
 ```
@@ -94,7 +94,7 @@ python map_dataset_mp.py --dataroot 'datasets' --area 'unionsquare5kU' --radius 
 - First, for each of the five areas named 'hudsonriver5kU', 'wallstreet5kU', 'unionsquare5kU', 'trainstreetlearnU', and 'cmu5kU', you need to convert the center (lat, lon) of each local region provided in the .csv files to (x, y) coordinates. The .csv files for 'trainstreetlearnU' and 'cmu5kU' are combined for the purpose of training.
 - Then, the local region is cropped from the whole area point cloud using the radius centered at (x, y). The radius is defined as original_radius * sqrt(2), which can ensure that there is no loss of information after rotating the magnified area and restoring it to its original size.
 
-### The final data will be stored in the following directory structure:
+#### The final data will be stored in the following directory structure:
 ```
 |–– datasets
 |   |––csv
@@ -113,12 +113,12 @@ python map_dataset_mp.py --dataroot 'datasets' --area 'unionsquare5kU' --radius 
 - The folders "manhattan" and "pittsburgh" can be obtained with the provided [extraction code](https://pan.baidu.com/s/1XTy4qbMVDXHIjPJi2JZVqw "extraction code") "data".
 - We offer a set of data in the \datasets\examples directory and a "visualizer.py" script to assist users in conducting visualization checks.
 
-Panoram                                |  2D map                | 2.5D map         
+Ground-view Image                       |  2D map                | 2.5D map         
 :-------------------------:|:-------------------------:|:-------------------------:
-<img src="datasets/examples/_dlEF8O77LTsFm2G9m7EiA.jpg" width="50%" height="auto">  |  <img src="datasets/examples/46265.png" > | <img src="datasets/examples/map1.png" >
+<img src="datasets/examples/_dlEF8O77LTsFm2G9m7EiA.jpg" width="448" height="224">  |  <img src="datasets/examples/46265.png" > | <img src="datasets/examples/map1.png" width="95%" height="auto">
 
 
-### FAQ
+## FAQ
 1. To install Open3D on Linux, you may encounter compatibility issues with the GLIBC version.
 - We have found that installing Open3D on MacOS or Windows systems is a much simpler process compared to installing it on Linux, which may require additional steps such as updating GLIBC versions.
 - If you have root authority, you can upgrade the GLIBC version on Linux to a compatible version for open3d-0.15.0. 
@@ -127,6 +127,6 @@ Panoram                                |  2D map                | 2.5D map
 4. If you have any other questions, please feel free to leave a message or contact me via "mengjie.zhou@bristol.ac.uk".
 
 
-### To release
+## To release
 - codes for learning embedding space
 - codes for route based geolocalization
