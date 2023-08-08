@@ -91,7 +91,7 @@ python utils/lat2xy.py --dataroot 'datasets' --area 'unionsquare5kU'
 python utils/merge_csv.py
 python map_dataset_mp.py --dataroot 'datasets' --area 'unionsquare5kU' --radius 114 --num_threads 16
 ```
-- First, for each of the five areas named 'hudsonriver5kU', 'wallstreet5kU', 'unionsquare5kU', 'trainstreetlearnU', and 'cmu5kU', you need to convert the center (lat, lon) of each local region provided in the .csv files to (x, y) coordinates. The .csv files for 'trainstreetlearnU' and 'cmu5kU' are combined for the purpose of training.
+- First, for each of the five areas named 'hudsonriver5kU', 'wallstreet5kU', 'unionsquare5kU', 'trainstreetlearnU', and 'cmu5kU', you need to convert the center (lat, lon) of each local region provided in the .csv files to (x, y) coordinates. The .csv files for 'trainstreetlearnU' and 'cmu5kU' are combined for the purpose of training. (All processed .csv files have been provided in datasets/csv folder, which can be used directly for following procedures.)
 - Then, the local region is cropped from the whole area point cloud using the radius centered at (x, y). The radius is defined as original_radius * sqrt(2), which can ensure that there is no loss of information after rotating the magnified area and restoring it to its original size.
 
 #### The final data will be stored in the following directory structure:
@@ -111,7 +111,7 @@ python map_dataset_mp.py --dataroot 'datasets' --area 'unionsquare5kU' --radius 
 ```
 - Ground-view images and 2.5D maps are saved with unique identifiers, while 2D maps are saved with a global index.
 - The folders "manhattan" and "pittsburgh" can be obtained with the provided [extraction code](https://pan.baidu.com/s/1XTy4qbMVDXHIjPJi2JZVqw "extraction code") "data".
-- We offer a set of data in the \datasets\examples directory and a "visualizer.py" script to assist users in conducting visualization checks.
+- We offer a set of data in the /datasets/examples directory and a "utils/visualizer.py" script to assist users in conducting visualization checks.
 
 Ground-view Image                       |  2D map                | 2.5D map         
 :-------------------------:|:-------------------------:|:-------------------------:
