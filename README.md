@@ -48,6 +48,8 @@ blender --background --python blender_osm.py --dataroot 'datasets' --city 'manha
 ```
 |–– datasets
 |   |––manhattan
+|   |   |––manhattan.osm
+|   |   |––manhattan_extra.osm
 |   |   |––manhattan.txt
 |   |   |––manhattan_obj
 |   |   |   |––manhattan.osm_areas_footway.obj
@@ -66,6 +68,10 @@ python pcd_generate.py --dataroot 'datasets' --city 'manhattan' --radius 76 --de
 ```
 |–– datasets
 |   |––manhattan
+|   |   |––manhattan.osm
+|   |   |––manhattan_extra.osm
+|   |   |––manhattan.txt
+|   |   |––manhattan_obj
 |   |   |––manhattan_cropped
 |   |   |––manhattanU_pcd
 |   |   |   |––manhattan.osm_areas_footway.pcd
@@ -74,7 +80,7 @@ python pcd_generate.py --dataroot 'datasets' --city 'manhattan' --radius 76 --de
 |   |   |––manhattanU.csv
 ```
 - Since regions like bodies of water are interconnected, the actual downloaded 2.5D model will be much larger than the required area. To address this issue, we first cut the original data based on the bounding box and saved the cropped data in \manhattan_cropped.
-- We use [barycentric coordinate](https://chrischoy.github.io/research/barycentric-coordinate-for-mesh-sampling/ "barycentric coordinate") to achieve uniform sampling of the mesh.
+- We use [barycentric coordinate](https://chrischoy.github.io/research/barycentric-coordinate-for-mesh-sampling/ "barycentric coordinate") to achieve uniform sampling of the mesh and save the obtained point cloud of each category in \manhattanU_pcd.
 - The semantic label of each point is saved in a .csv file.
 - Refer to "color_map.yaml" for each category's name, label, and encoded color.
 
@@ -110,7 +116,7 @@ python map_dataset_mp.py --dataroot 'datasets' --area 'unionsquare5kU' --radius 
 |   |––unionsquare5kU_idx
 ```
 - Ground-view images and 2.5D maps are saved with unique identifiers, while 2D maps are saved with a global index.
-- The folders "manhattan" and "pittsburgh" can be obtained with the provided [extraction code](https://pan.baidu.com/s/1XTy4qbMVDXHIjPJi2JZVqw "extraction code") "data".
+- The folders "manhattan", "pittsburgh" and three testing folders (hudsonriver5kU_idx, wallstreet5kU_idx, unionsquare5kU_idx) can be directly obtained with the provided link [extraction code](https://pan.baidu.com/s/1XTy4qbMVDXHIjPJi2JZVqw "extraction code").
 - We offer a set of data in the /datasets/examples directory and a "utils/visualizer.py" script to assist users in conducting visualization checks.
 
 Ground-view Image                       |  2D map                | 2.5D map         
