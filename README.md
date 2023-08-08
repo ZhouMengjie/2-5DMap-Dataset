@@ -116,7 +116,7 @@ python map_dataset_mp.py --dataroot 'datasets' --area 'unionsquare5kU' --radius 
 |   |––unionsquare5kU_idx
 ```
 - Ground-view images and 2.5D maps are saved with unique identifiers, while 2D maps are saved with a global index.
-- The folders "manhattan", "pittsburgh" and three testing folders (hudsonriver5kU_idx, wallstreet5kU_idx, unionsquare5kU_idx) can be directly obtained with the provided link [extraction code](https://pan.baidu.com/s/1XTy4qbMVDXHIjPJi2JZVqw "extraction code").
+- The folders "manhattan", "pittsburgh" and three testing folders (hudsonriver5kU_idx, wallstreet5kU_idx, unionsquare5kU_idx) can be directly obtained with the provided link [2.5D Dataset](https://drive.google.com/drive/folders/1L5q6y8aS8QNSaF5Y09T_5cUhDf0-jfVY?usp=sharing "2.5D Dataset").
 - We offer a set of data in the /datasets/examples directory and a "utils/visualizer.py" script to assist users in conducting visualization checks.
 
 Ground-view Image                       |  2D map                | 2.5D map         
