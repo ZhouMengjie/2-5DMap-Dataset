@@ -2,7 +2,7 @@
 This repository contains datasets and codes related to our latest work:
 - Image-based Geolocalization by Ground-to-2.5D Map Matching (to be published)
 
-The main task of our work involves querying a ground-view image in relation to a large-scale and highly detailed georeferenced map, which consists of 2.5D structure models and 2D aerial-view map images. Examples of the 2D and 2.5D maps are shown below.
+The main task of our work involves querying a ground-view image in relation to a large-scale and highly detailed georeferenced map, which consists of 2.5D structural map models and 2D aerial-view map images. Examples of the 2D and 2.5D maps are shown below.
 
 2D map            |  2.5D map
 :----------------:|:-------------------------:
@@ -87,8 +87,8 @@ python pcd_merge.py --dataroot 'datasets' --city 'manhattan'
 
 #### Step 5. Generate map subsets for training, validation, and testing using multiprocessing.
 ```
-python lat2xy.py --dataroot 'datasets' --area 'unionsquare5kU'
-python merge_csv.py
+python utils/lat2xy.py --dataroot 'datasets' --area 'unionsquare5kU'
+python utils/merge_csv.py
 python map_dataset_mp.py --dataroot 'datasets' --area 'unionsquare5kU' --radius 114 --num_threads 16
 ```
 - First, for each of the five areas named 'hudsonriver5kU', 'wallstreet5kU', 'unionsquare5kU', 'trainstreetlearnU', and 'cmu5kU', you need to convert the center (lat, lon) of each local region provided in the .csv files to (x, y) coordinates. The .csv files for 'trainstreetlearnU' and 'cmu5kU' are combined for the purpose of training.
