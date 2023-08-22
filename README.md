@@ -1,10 +1,10 @@
 # A Large Scale Ground-to-2.5D Map Geolocalization Dataset
 This repository contains datasets and codes related to our latest work:
-- [Image-based Geolocalization by Ground-to-2.5D Map Matching] (https://arxiv.org/abs/2308.05993 "Image-based Geolocalization by Ground-to-2.5D Map Matching")
+- [Image-based Geolocalization by Ground-to-2.5D Map Matching](https://arxiv.org/abs/2308.05993 "Image-based Geolocalization by Ground-to-2.5D Map Matching")
 
 The main task of our work involves querying a ground-view image in relation to a large-scale and highly detailed georeferenced map, which consists of 2.5D structural map models and 2D aerial-view map images. Examples of the 2D and 2.5D maps are shown below.
 
-2D map            |  2.5D map
+2D map            |  2.5D map  
 :----------------:|:-------------------------:
 <img src="datasets/examples/2Dmap.png" width="435" height="267">  |  <img src="datasets/examples/2_5Dmap.png" width="500" height="300">
 
