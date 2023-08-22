@@ -142,6 +142,7 @@ We make no claims about the stability or usability of the code provided in this 
 We provide no warranty of any kind, and accept no liability for damages of any kind that result from the use of this code.
 
 ## Citation
+If you use this code, please cite:
 ```latex
 @article{zhou2023image,
   title={Image-based Geolocalization by Ground-to-2.5D Map Matching},
