@@ -145,7 +145,7 @@ We provide no warranty of any kind, and accept no liability for damages of any k
 ```latex
 @article{zhou2023image,
   title={Image-based Geolocalization by Ground-to-2.5D Map Matching},
-  author={Zhou, Mengjie and Liu, Liu and Zhong, Yiran},
+  author={Zhou, Mengjie and Liu, Liu, Zhong, Yiran and Andrew Calway},
   journal={arXiv preprint arXiv:2308.05993},
   year={2023}
 }
