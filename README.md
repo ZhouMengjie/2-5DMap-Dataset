@@ -135,7 +135,7 @@ Ground-view Image                       |  2D map                | 2.5D map
 
 ## Other codes
 - codes for learning location embeddings: 
-- codes for route based geolocalization:
+- codes for route based geolocalization: https://github.com/ZhouMengjie/you-are-here
 
 ## Disclaimer
 We make no claims about the stability or usability of the code provided in this repository.
@@ -145,7 +145,7 @@ We provide no warranty of any kind, and accept no liability for damages of any k
 ```latex
 @article{zhou2023image,
   title={Image-based Geolocalization by Ground-to-2.5D Map Matching},
-  author={Zhou, Mengjie and Liu, Liu, Zhong, Yiran and Andrew Calway},
+  author={M. Zhou, L. Liu, Y. Zhong, A. Calway},
   journal={arXiv preprint arXiv:2308.05993},
   year={2023}
 }
