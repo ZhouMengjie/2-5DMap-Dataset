@@ -1,6 +1,6 @@
 # A Large Scale Ground-to-2.5D Map Geolocalization Dataset
 This repository contains datasets and codes related to our latest work:
-- Image-based Geolocalization by Ground-to-2.5D Map Matching (to be published)
+- [Image-based Geolocalization by Ground-to-2.5D Map Matching] (https://arxiv.org/abs/2308.05993 "Image-based Geolocalization by Ground-to-2.5D Map Matching")
 
 The main task of our work involves querying a ground-view image in relation to a large-scale and highly detailed georeferenced map, which consists of 2.5D structural map models and 2D aerial-view map images. Examples of the 2D and 2.5D maps are shown below.
 
@@ -133,6 +133,20 @@ Ground-view Image                       |  2D map                | 2.5D map
 4. If you have any other questions, please feel free to leave a message or contact me via "mengjie.zhou@bristol.ac.uk".
 
 
-## To release
-- codes for learning embedding space
-- codes for route based geolocalization
+## Other codes
+- codes for learning location embeddings: 
+- codes for route based geolocalization:
+
+## Disclaimer
+We make no claims about the stability or usability of the code provided in this repository.
+We provide no warranty of any kind, and accept no liability for damages of any kind that result from the use of this code.
+
+## Citation
+```latex
+@article{zhou2023image,
+  title={Image-based Geolocalization by Ground-to-2.5D Map Matching},
+  author={Zhou, Mengjie and Liu, Liu and Zhong, Yiran},
+  journal={arXiv preprint arXiv:2308.05993},
+  year={2023}
+}
+```
