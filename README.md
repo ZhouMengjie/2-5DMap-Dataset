@@ -134,7 +134,7 @@ Ground-view Image                       |  2D map                | 2.5D map
 
 
 ## Other codes
-- codes for learning location embeddings: 
+- codes for learning location embeddings: https://github.com/ZhouMengjie/Image-to-2.5DMap-Matching
 - codes for route based geolocalization: https://github.com/ZhouMengjie/you-are-here
 
 ## Disclaimer
