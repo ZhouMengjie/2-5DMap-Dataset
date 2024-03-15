@@ -2,7 +2,7 @@
 This repository contains datasets and codes related to our latest work: (to be published, arxiv version)
 - [Image-based Geolocalization by Ground-to-2.5D Map Matching](https://arxiv.org/abs/2308.05993 "Image-based Geolocalization by Ground-to-2.5D Map Matching")
 
-The main task of our work involves querying a ground-view image in relation to a large-scale and highly detailed georeferenced map, which consists of 2.5D structural map models and 2D aerial-view map images. Examples of the 2D and 2.5D maps are shown below.
+The main task of our work involves querying a ground-view image in relation to a large-scale and highly detailed georeferenced map, which consists of 2D map tiles and 2.5D map models. Examples of the 2D and 2.5D maps are shown below.
 
 2D map            |  2.5D map  
 :----------------:|:-------------------------:
@@ -13,7 +13,7 @@ The main task of our work involves querying a ground-view image in relation to a
 ## Datasets
 Here, we present two ready-made datasets, each of which includes:
 - Ground-view panoramic images (To request, please visit the project of [StreetLearn Dataset](https://sites.google.com/view/streetlearn/dataset "StreetLearn Dataset")). 
-- 2D maps (To request, please visit our previous project: [You Are Here: Geolocation by Embedding Maps and Images](https://github.com/ZhouMengjie/Image-Map-Embeddings "You Are Here: Geolocation by Embedding Maps and Images")).
+- 2D map tiles (To request, please visit our previous project: [You Are Here: Geolocation by Embedding Maps and Images](https://github.com/ZhouMengjie/Image-Map-Embeddings "You Are Here: Geolocation by Embedding Maps and Images")).
 
 
 ## Codes
