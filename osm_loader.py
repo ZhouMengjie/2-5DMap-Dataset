@@ -19,12 +19,15 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     dataroot = args.dataroot
-    city = args.city
+    # city = args.city
+    city = 'vermont'
     if city == 'manhattan':
         # [minlon, minlat, maxlon, maxlat]
         bbox = [-74.028, 40.695, -73.940, 40.788] 
     elif city == 'pittsburgh':
         bbox = [-80.035, 40.425, -79.930, 40.460]
+    elif city == 'vermont':
+        bbox = [-73.425, 42.820, -71.499, 45.011]
     else:
         raise NotImplementedError('Please manually set the bounding box!')
     
