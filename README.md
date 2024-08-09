@@ -130,7 +130,7 @@ Ground-view Image                       |  2D map                | 2.5D map
 - If you have root authority, you can upgrade the GLIBC version on Linux to a compatible version for open3d-0.15.0. 
 3. In Step 3, you may encounter a message stating "[Open3D INFO] Skipping non-triangle primitive geometry of type: 6".
 - This message indicates that Open3D is skipping non-triangle primitive geometry of type 6, which is line geometry. This may happen if your .obj file contains lines (l) instead of faces (f). To fix this, you should check your .obj files and delete the "l" (line) entries manually. Alternatively, you can convert the line geometry into face geometry by adding new faces to the .obj file that approximate the lines.
-4. If you have any other questions, please feel free to leave a message or contact me via "mengjie.zhou@bristol.ac.uk".
+4. If you have any other questions, please feel free to leave a message or contact me via "mengjie.zhou@bristol.ac.uk" or "mengjiezhou2018@outlook.com".
 
 
 ## Other codes
